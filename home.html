@@ -1,0 +1,57 @@
+<div ng-controller="homeController as vm">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-10">
+        <h1>Welcome to Grocery Cloud 2.1</h1>
+        <h2>The best way to shop for groceries online</h2>  
+    </div>
+    <div class="col-md-2">
+        <a href="#ProductIndex"><button  class="btn btn-default">SHOP ALL ></button></a><br>
+        <input type="checkbox" id="slideshowToggle"> Turn off Slide Show
+    </div>
+  </div>
+
+        <div id="featuredProducts">
+          <div class="row">
+              <div class="col-md-6 box-4" ng-repeat="p in vm.featured" ng-if="$index < 4">
+                <a ng-href="#/Product/{{vm.encode(p.name)}}"><img src="{{p.imagelink}}"></a>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 box-2" ng-repeat="p in vm.featured" ng-if="$index >= 4 && $index < 6">
+                <a ng-href="#/Product/{{vm.encode(p.name)}}"><img src="{{p.imagelink}}"></a>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-4 box-3" ng-repeat="p in vm.featured" ng-if="$index >= 6 && $index < 9">
+                <a ng-href="#/Product/{{vm.encode(p.name)}}"><img src="{{p.imagelink}}"></a>
+              </div>
+          </div>
+
+        </div>
+
+
+        <script type="text/javascript">
+
+
+         
+          $(document).ready(function(){
+            $('#featuredProducts').slick({
+              autoplay: true,
+              autoplaySpeed : 3000,
+            });
+          });
+
+          $('#slideshowToggle').change(function() {
+            if($(this).is(":checked")) {
+              $('#featuredProducts').slick('slickPause');
+               return;
+            }
+            $('#featuredProducts').slick('slickPlay');
+         });
+
+
+        </script>
+
+  </div>
+</div>

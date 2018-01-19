@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-7">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2737649.394296913!2d16.480302827160216!3d47.92698726428111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sat!4v1516263382500" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+
+  <div class="col-md-5">
+      <h4><strong>Contact Us</strong></h4>
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" id="name" placeholder="Name" ng-model="name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" id="email" placeholder="E-mail" ng-model="email"required>
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" placeholder="Phone" ng-model="phone">
+      </div>
+      <div class="form-group">
+          <select class="form-control" name="topic" ng-model="topic">
+            <option value="complaint">complaint</option>
+            <option value="suggestion">suggestion </option>
+            <option value="support">support</option>
+          </select>
+        </div>
+      <div class="form-group">
+        <textarea class="form-control" name="" rows="3" placeholder="Message" ng-model="message"></textarea>
+      </div>
+      <button class="btn btn-default" onclick="checkForm()" name="button">
+          Send
+      </button>
+    </form>
+
+<!--modal -->
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myCheckoutLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myCheckoutLabel">Contact Us</h4>
+        </div>
+        <div class="modal-body">
+            <dl>
+                <dt>Name</dt>
+                <dd>{{name}}</dd>
+                <dt>Email</dt>
+                <dd>{{email}}</dd>
+                <dt>Phone</dt>
+                <dd>{{phone}}</dd>
+                <dt>Topic</dt>
+                <dd>{{topic}}</dd>
+                <dt>Message</dt>
+                <dd>{{message}}</dd>
+            </dl>
+                
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- modal end -->
+  </div>
+</div>
+</div>
+
+<script>
+    function checkForm() {
+        if($("#name").is(":valid") 
+            && $("#email").is(":valid")) {
+            $('#contact').modal('show');
+        }
+    }
+    
+</script>

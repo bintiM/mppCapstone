@@ -1,0 +1,35 @@
+<div ng-controller="productController as vm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                    <img src="{{vm.product.imagelink}}" alt="..." class="img-responsive productimage">
+            </div>
+            <div class="col-md-5">
+                <h2>{{vm.product.name}}</h2>
+                <div> 
+                    <span ng-repeat="i in [1,2,3,4,5]">
+                        <span ng-if="i <= vm.product.rating">★</span>
+                        <span ng-if="i > vm.product.rating">☆</span>
+                        </span>
+                    </div>
+                <dl>
+                    <dt>price</dt>
+                    <dd>{{vm.product.price | currency}}</dd>
+                    <dt>in Stock</dt>
+                    <dd>{{vm.product.stock}}</dd>
+                    <dt>description</dt>
+                    <dd>{{vm.product.description}}</dd>
+                    <dt ng-if="vm.product.stock > 0">qty</dt>
+                    <dd><input type="number" min="0" max="{{vm.product.stock}}" ng-model="vm.qty" ng-if="vm.product.stock > 0"/></dd>
+                </dl>
+                
+                
+                <button ng-click="vm.addToCart()" class="btn" ng-class="{'btn-disabled': vm.product.stock == 0, 'btn-default': vm.product.stock > 0}" ng-disabled="vm.product.stock == 0">add to cart</button>
+                
+            </div>
+        <div class="col-md-1">
+            <button ng-click="vm.back()" class="btn btn-default">back</button>
+        </div>
+        </div>
+    </div>
+</div>

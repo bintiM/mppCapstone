@@ -1,0 +1,50 @@
+<div ng-controller="productIndexController as vm">
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">Showing {{vm.filteredItemCount}} of {{vm.subcategorylength}} items in {{vm.categoryname}} {{vm.subcategoryname}}</div>
+            
+            <div class="col-md-3 col-md-offset-3">In Stock only <input type="checkbox" ng-model="vm.inStockOnly"> 
+                Sort by:
+                <select ng-model="selectedOrder" ng-options="option for option in vm.options"></select> 
+            </div>
+        </div>
+        <div class="row">
+            <nav class="col-md-2">
+                <ul ng-repeat="p in vm.products" ng-init="outerIndex = $index">
+                    <li><a href="#ProductIndex/{{outerIndex}}">{{p.category}}</a></li>
+                    <ul ng-repeat="s in p.subcategories"  ng-init="innerIndex = $index" ng-if="outerIndex == vm.category">
+                        <li><a href="#ProductIndex/{{outerIndex}}/{{innerIndex}}">{{s.name}}</a></li>
+                    </ul>
+                </ul>
+            </nav>
+            <main class="col-md-10 productOverview">
+                <div class="row">
+                    <div ng-repeat="p in vm.products" ng-if="$index == vm.category">
+                        <div ng-repeat="s in p.subcategories" ng-if="(vm.subCategory == undefined) || ($index == vm.subCategory)">
+                            <div ng-repeat="i in filtered = (s.items | filter:vm.isInStock | orderBy:selectedOrder)" class="col-md-4">
+                                <article class="row">
+                                    <div class="col-md-8 imagewrapper">
+                                            <a ng-href="#/Product/{{vm.encode(i.name)}}"><img src="{{i.imagelink}}" class="img-responsive"></a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a ng-href="#/Product/{{vm.encode(i.name)}}">{{i.name}}</a><br>
+                                        {{i.price | currency}}<br>
+                                        <button ng-click="vm.addToCart(i)" class="btn btn-default">add to Cart</button>
+                                        
+                                    </div>
+                                    {{vm.setFilteredItems(filtered.length)}}
+                                </article>
+                                
+                            </div>
+                            <article ng-if="s.items.length == 0">No items available in this category.</article>
+                           
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,146 @@
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* COMMON */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+body {
+    color: rgb(9, 43, 58);
+}
+
+.maincontent {
+    margin-top: 70px;
+}
+
+
+.navbar-default {
+    background-color: #FBC5D9;
+}
+.navbar-default .navbar-nav>li>a {
+    color: rgb(9, 43, 58);
+}
+.navbar-default  a:hover {
+    color:black;
+}
+.navbar-default .navbar-brand {
+    color: rgb(9, 43, 58); 
+}
+.badge {
+    margin-left: 5px;
+}
+
+
+.btn-default {
+    background-color: #94D3F1;    
+}
+
+.btn-default:hover {
+    background-color: rgb(71, 192, 248);    
+}
+.btn-danger {
+    background-color: #FBC5D9;
+    border-color: #FBC5D9;
+}
+
+
+
+
+input[type=number]{
+    width: 40px;
+}
+input:valid {
+    border-color: green;
+}
+input:invalid {
+    border-color: red;
+}
+
+.icon {
+    display: block;
+    text-align: center;
+    font-size: 75px;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* HOME */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.carousel {
+
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.homewidth {
+    width: 800px;
+}
+
+
+article {
+    padding: 30px;
+    height: 300px;
+}
+
+.box-4 {
+    height: 300px;
+}
+.box-3, .box-2 {
+    height: 600px;
+    display: flex;
+    align-items: center;
+}
+.box-4 img {
+    max-width: 200px;
+}
+.box-3 img {
+    max-width: 250px;
+}
+.box-2 img {
+    max-width: 300px;
+}
+
+#featuredProducts img {
+    /*width: 100%;*/
+    max-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.productOverview img {
+    max-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slick-next::before, .slick-prev::before {
+    color: #94D3F1;
+    
+}
+
+.productimage {
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ABOUT */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.about {
+    text-align: center;
+}
+
+.parallax {
+    background-image: url("./img/background.png");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section {
+    margin: 50px;
+}
+
+
+
